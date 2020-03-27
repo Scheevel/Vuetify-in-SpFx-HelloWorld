@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "demo-veutify-crm-client-side-solution",
+    "id": "5fa9e979-1721-414e-8b1c-0612503e72ac",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": true
+  },
+  "paths": {
+    "zippedPackage": "solution/demo-veutify-crm.sppkg"
+  }
+}
