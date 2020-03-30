@@ -13,6 +13,8 @@ import Vue from 'vue';
 import App from './App.vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+import router from './router/index'
+import store from './store/index'
 Vue.config.productionTip=false;
 Vue.use(Vuetify);
 const vuetifyOpts = {};
