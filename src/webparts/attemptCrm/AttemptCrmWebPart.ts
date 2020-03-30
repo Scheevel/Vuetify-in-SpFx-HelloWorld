@@ -12,11 +12,13 @@ import * as strings from 'AttemptCrmWebPartStrings';
 import Vue from 'vue';
 import App from './App.vue';
 import Vuetify from 'vuetify';
+import VueRouter from 'vue-router';
 import 'vuetify/dist/vuetify.min.css';
 import router from './router/index'
 import store from './store/index'
 Vue.config.productionTip=false;
 Vue.use(Vuetify);
+Vue.use(VueRouter);
 const vuetifyOpts = {};
 // Importing Vue.js SFC
 //import AttemptCrmComponent from './components/AttemptCrm.vue';
@@ -31,10 +33,11 @@ export default class AttemptCrmWebPart extends BaseClientSideWebPart<IAttemptCrm
     const id: string = `wp-${this.instanceId}`;
     this.domElement.innerHTML = `<div id="${id}"></div>`;
 
-    let el = new Vue({
+    let vm = new Vue({
       el: `#${id}`,
       vuetify: new Vuetify(vuetifyOpts),
-      render: h => h(App, {
+      router: new VueRouter({}),
+      render: h => h(App, { 
         props: {
           description: this.properties.description
         }
