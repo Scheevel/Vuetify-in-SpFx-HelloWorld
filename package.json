@@ -14,6 +14,7 @@
     "postversion": "gulp dist"
   },
   "dependencies": {
+    "@mdi/font": "^5.0.45",
     "@microsoft/sp-core-library": "1.10.0",
     "@microsoft/sp-lodash-subset": "1.10.0",
     "@microsoft/sp-office-ui-fabric-core": "1.10.0",
@@ -27,10 +28,12 @@
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "jquery": "^3.4.1",
+    "material-design-icons": "^3.0.1",
     "stylus": "^0.54.7",
     "vue": "^2.6.11",
     "vue-chart.js": "^0.2.0",
     "vue-class-component": "^7.2.2",
+    "vue-material-design-icons": "^4.4.0",
     "vue-progressbar": "^0.7.5",
     "vue-property-decorator": "^8.3.0",
     "vue-router": "^3.1.6",

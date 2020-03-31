@@ -7,6 +7,7 @@ import {
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import * as strings from 'AttemptCrmWebPartStrings';
+//import '@mdi/font';
 
 // Importing Vue.js
 import Vue from 'vue';
@@ -14,7 +15,7 @@ import App from './App.vue';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import 'vuetify/dist/vuetify.min.css';
-//import 'material-design-icons-iconfont/dist/material-design-icons.css';
+import '../../../node_modules/material-design-icons/iconfont/material-icons.css';
 import router from './router/index'
 import store from './store/index'
 Vue.config.productionTip=false;
