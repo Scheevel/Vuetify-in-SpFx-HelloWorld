@@ -14,6 +14,7 @@ import App from './App.vue';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import 'vuetify/dist/vuetify.min.css';
+//import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import router from './router/index'
 import store from './store/index'
 Vue.config.productionTip=false;

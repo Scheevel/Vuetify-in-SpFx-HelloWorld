@@ -1,4 +1,4 @@
-import db from "./demo-data.json"
+import db from "./demo-data";
 
 let ds;
 ds = ds || Object.assign({}, db);
