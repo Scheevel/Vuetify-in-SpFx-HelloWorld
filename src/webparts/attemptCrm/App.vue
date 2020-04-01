@@ -21,9 +21,10 @@
           min-width="100"
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
           width="100"
-        />
-      </div>
+        />
+      </div>
       <v-spacer></v-spacer>
+      <v-icon>info</v-icon>
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"

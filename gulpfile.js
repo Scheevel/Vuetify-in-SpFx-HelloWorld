@@ -36,7 +36,15 @@ const themedStyleLoader = require.resolve('@microsoft/loader-load-themed-styles'
 
         additionalConfiguration: (generatedConfiguration) => {
 
-            const loadersConfigs = [{
+            const loadersConfigs = [
+                {
+                    test: /\.(woff2?|eot|ttf|otf)$/,
+                    loader: 'file-loader',
+                    options: {
+                        limit: 10000,
+                        name: '[name].[hash:7].[ext]'
+                      }
+                }, {
                 test: /\.vue$/, // vue
                 use: [{
                     loader: 'vue-loader'
