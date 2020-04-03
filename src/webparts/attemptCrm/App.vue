@@ -24,30 +24,44 @@
         />
       </div>
       <v-spacer></v-spacer>
-      <v-icon>info</v-icon>
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn class="px-4" to="/updates">
+        <v-icon class="pr-1">mdi-database-check</v-icon>
+        <span class="mr-2">Updates</span>
       </v-btn>
+      <v-btn class="px-4" to="/data">
+        <v-icon class="pr-1">mdi-database</v-icon>
+        <span class="mr-2">Data</span>
+      </v-btn>
+      <v-btn class="px-4" to="/about">
+        <v-icon class="pr-1"mdi-information</v-icon>
+        <span class="mr-2">About</span>
+      </v-btn>
     </v-app-bar>
     <v-content>
       <SpFxComponent/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
+
 <script>
-import SpFxComponent from './components/AttemptCrm.vue';
+
+//import AboutComponent from "./components/About.vue";
+//import SpFxComponent from './components/AttemptCrm.vue';
 export default {
   name: 'App',
-  components: {
-    SpFxComponent,
-  },
   data: () => ({
     //
   }),
 };
 </script>
+
+<style>
+.v-transition {
+  transition: opacity .1s ease-out;
+}
+  
+.v-enter, .v-leave {
+  opacity: 0;
+}
+</style>

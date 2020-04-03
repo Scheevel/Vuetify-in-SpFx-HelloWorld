@@ -12,14 +12,22 @@ import * as strings from 'AttemptCrmWebPartStrings';
 import Vue from 'vue';
 import App from './App.vue';
 import Vuetify from 'vuetify';
+import VueRouter from 'vue-router';
 import 'vuetify/dist/vuetify.min.css';
-import '../../../node_modules/material-design-icons-iconfont/dist/material-design-icons.css'
-//import '../../../node_modules/material-design-icons/iconfont/material-icons.css';
+//import '../../../node_modules/material-design-icons-iconfont/dist/material-design-icons.css'
+import '../../../node_modules/@mdi/font/css/materialdesignicons.css';
 Vue.config.productionTip=false;
 Vue.use(Vuetify);
+Vue.use(VueRouter);
 const vuetifyOpts = {};
-// Importing Vue.js SFC
-//import AttemptCrmComponent from './components/AttemptCrm.vue';
+import AboutComponent from "./components/About.vue";
+import SpFxComponent from './components/AttemptCrm.vue';
+const routes = [
+  { path: '/about', name: 'About', icon:'mdi-information', component: AboutComponent }
+]
+const AppRouter= new VueRouter({
+  routes
+});
 
 export interface IAttemptCrmWebPartProps {
   description: string;
@@ -34,6 +42,11 @@ export default class AttemptCrmWebPart extends BaseClientSideWebPart<IAttemptCrm
     let el = new Vue({
       el: `#${id}`,
       vuetify: new Vuetify(vuetifyOpts),
+      router: AppRouter,
+      components: {
+        SpFxComponent,
+        AboutComponent
+      },
       render: h => h(App, {
         props: {
           description: this.properties.description
