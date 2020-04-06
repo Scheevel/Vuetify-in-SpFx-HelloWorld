@@ -14,16 +14,17 @@ import App from './App.vue';
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import 'vuetify/dist/vuetify.min.css';
-//import '../../../node_modules/material-design-icons-iconfont/dist/material-design-icons.css'
 import '../../../node_modules/@mdi/font/css/materialdesignicons.css';
 Vue.config.productionTip=false;
 Vue.use(Vuetify);
 Vue.use(VueRouter);
 const vuetifyOpts = {};
-import AboutComponent from "./components/About.vue";
-import SpFxComponent from './components/AttemptCrm.vue';
+import AboutPage from "./pages/About.vue";
+import DataGridPage from "./pages/DataGrid.vue";
+import SpFxPage from './pages/AttemptCrm.vue';
 const routes = [
-  { path: '/about', name: 'About', icon:'mdi-information', component: AboutComponent }
+  { path: '/about', name: 'About', icon:'mdi-information', component: AboutPage },
+  { path: '/datagrid', name: 'Data Grid', icon:'mdi-database', component: DataGridPage }
 ]
 const AppRouter= new VueRouter({
   routes
@@ -44,8 +45,9 @@ export default class AttemptCrmWebPart extends BaseClientSideWebPart<IAttemptCrm
       vuetify: new Vuetify(vuetifyOpts),
       router: AppRouter,
       components: {
-        SpFxComponent,
-        AboutComponent
+        SpFxPage,
+        AboutPage,
+        DataGridPage
       },
       render: h => h(App, {
         props: {
