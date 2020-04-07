@@ -30,6 +30,14 @@ export interface IAttemptCrmWebPartProps {
 }
 
 export default class AttemptCrmWebPart extends BaseClientSideWebPart<IAttemptCrmWebPartProps> {
+  //@override
+  public onInit<T>(): Promise<T> {
+    return new Promise<T>((resolve: (args: T) => void, reject: (error: Error) => void) => {
+      setTimeout(() => {
+          resolve(undefined);
+        }, 5000);
+    });
+  }
 
   public render(): void {
     const id: string = `wp-${this.instanceId}`;
