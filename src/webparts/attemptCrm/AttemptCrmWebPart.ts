@@ -5,6 +5,7 @@ import {
     PropertyPaneTextField
   } from '@microsoft/sp-webpart-base';
 import { escape } from '@microsoft/sp-lodash-subset';
+import { sp } from '@pnp/sp/presets/all';
 
 import * as strings from 'AttemptCrmWebPartStrings';
 
@@ -31,12 +32,11 @@ export interface IAttemptCrmWebPartProps {
 
 export default class AttemptCrmWebPart extends BaseClientSideWebPart<IAttemptCrmWebPartProps> {
   //@override
-  public onInit<T>(): Promise<T> {
-    return new Promise<T>((resolve: (args: T) => void, reject: (error: Error) => void) => {
-      setTimeout(() => {
-          resolve(undefined);
-        }, 5000);
-    });
+  protected async onInit(): Promise<void> {
+    await super.onInit();
+    sp.setup(this.context);
+    const items: any[] = await sp.web.lists.getByTitle('demo - track changes').items.get();
+    console.log(items);
   }
 
   public render(): void {
