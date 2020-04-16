@@ -9,7 +9,6 @@ import { sp } from '@pnp/sp/presets/all';
 
 import * as strings from 'AttemptCrmWebPartStrings';
 
-// Importing Vue.js
 import Vue from 'vue';
 import App from './App.vue';
 import Vuetify from 'vuetify';
@@ -17,6 +16,14 @@ import VueRouter from 'vue-router';
 import 'vuetify/dist/vuetify.min.css';
 import '../../../node_modules/@mdi/font/css/materialdesignicons.css';
 import { routes } from "./ComponentsAndRoutes";
+import { columns, items } from './api';
+
+
+Vue.prototype.$lp = {};
+Vue.prototype.$lp.columns = columns;
+Vue.prototype.$lp.items= items;
+Vue.prototype.$lp.sp = sp;
+
 Vue.config.productionTip=false;
 Vue.use(Vuetify);
 Vue.use(VueRouter);
@@ -33,17 +40,21 @@ export interface IAttemptCrmWebPartProps {
 export default class AttemptCrmWebPart extends BaseClientSideWebPart<IAttemptCrmWebPartProps> {
   //@override
   protected async onInit(): Promise<void> {
+    //debugger;
     await super.onInit();
-    sp.setup(this.context);
-    const items: any[] = await sp.web.lists.getByTitle('demo - track changes').items.get();
-    console.log(items);
+    await sp.setup(this.context);
+    Vue.prototype.$lp.context = this.context;
+    //console.log(sp);
+    //consoleLogProto();
+    //const items: any[] = await sp.web.lists.getByTitle('demo - track changes').items.get();
+    //console.log(items);
   }
 
   public render(): void {
     const id: string = `wp-${this.instanceId}`;
     this.domElement.innerHTML = `<div id="${id}"></div>`;
 
-    let el = new Vue({
+    new Vue({
       el: `#${id}`,
       vuetify: new Vuetify(vuetifyOpts),
       router: AppRouter,
